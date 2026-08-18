@@ -1,0 +1,6 @@
+{
+  "appId": "mx.uan.teoriadenumeros",
+  "appName": "Teoría de Números UAN",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}

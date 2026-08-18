@@ -1,0 +1,211 @@
+// NTE-UAN-APK-001 v1.3 — Demostraciones Formales de Teoría de Números
+// Licenciatura en Matemáticas — UAN (CBIMAT-256)
+
+export const DEMOSTRACIONES = [
+  {
+    id: "infinitud_primos",
+    titulo: "Infinitud del Conjunto de los Números Primos",
+    autor: "Euclides de Alejandría (Elementos, Libro IX, Proposición 20)",
+    enunciado: "El conjunto de los números primos \\(\\mathbb{P}\\) es infinito.",
+    categoria: "Primalidad",
+    color: "#3fb950",
+    pasos: [
+      {
+        numero: 1,
+        tipo: "Hipótesis por Contradicción",
+        latex: "\\mathbb{P} = \\{p_1, p_2, \\dots, p_k\\} \\quad (k < \\infty)",
+        explicacion: "Supongamos, por reducción al absurdo, que solo existe una cantidad finita \\(k\\) de números primos en el universo numérico.",
+      },
+      {
+        numero: 2,
+        tipo: "Construcción del Entero Auxiliar",
+        latex: "N = (p_1 \\cdot p_2 \\cdot \\dots \\cdot p_k) + 1",
+        explicacion: "Construimos el número entero positivo \\(N\\) como el producto de todos los primos conocidos más una unidad. Es claro que \\(N > 1\\) y \\(N > p_i\\) para todo \\(i \\in \\{1,\\dots,k\\}\\).",
+      },
+      {
+        numero: 3,
+        tipo: "Aplicación del Teorema de Existencia de Factores Primos",
+        latex: "\\exists q \\in \\mathbb{P} \\quad \\text{tal que} \\quad q \\mid N",
+        explicacion: "Todo entero mayor que 1 posee al menos un divisor primo. Por tanto, existe un número primo \\(q\\) que divide exactamente a \\(N\\).",
+      },
+      {
+        numero: 4,
+        tipo: "Análisis de Divisibilidad",
+        latex: "q \\in \\{p_1, \\dots, p_k\\} \\implies q \\mid (p_1 \\dots p_k)",
+        explicacion: "Si la lista original fuese completa, \\(q\\) tendría que ser uno de los primos \\(p_j\\), por lo que \\(q\\) dividiría al producto \\(P = p_1 \\dots p_k\\).",
+      },
+      {
+        numero: 5,
+        tipo: "Deducción de Contradicción",
+        latex: "q \\mid N \\quad \\text{y} \\quad q \\mid (N - 1) \\implies q \\mid [N - (N-1)] \\implies q \\mid 1",
+        explicacion: "Si un número primo divide a dos enteros, divide a su diferencia. Esto obligaría a que \\(q \\mid 1\\), lo cual es absurdo ya que los primos son mayores que 1.",
+      },
+      {
+        numero: 6,
+        tipo: "Conclusión",
+        latex: "|\\mathbb{P}| = \\infty \\quad \\blacksquare",
+        explicacion: "La suposición de finitud es insostenible. Por consiguiente, existen infinitos números primos.",
+      },
+    ],
+  },
+  {
+    id: "teorema_bezout",
+    titulo: "Identidad y Teorema de Bézout",
+    autor: "Étienne Bézout (1730-1783)",
+    enunciado: "Para cualesquiera enteros \\(a, b \\in \\mathbb{Z}\\) no ambos nulos, existen enteros \\(x, y \\in \\mathbb{Z}\\) tales que \\(a x + b y = \\operatorname{mcd}(a, b)\\). Además, \\(\\operatorname{mcd}(a, b)\\) es el menor entero positivo que puede expresarse como combinación lineal entera de \\(a\\) y \\(b\\).",
+    categoria: "Divisibilidad",
+    color: "#e3b341",
+    pasos: [
+      {
+        numero: 1,
+        tipo: "Definición del Conjunto de Combinaciones Lineales Positivas",
+        latex: "S = \\{ a u + b v > 0 : u, v \\in \\mathbb{Z} \\}",
+        explicacion: "Consideramos el conjunto \\(S\\) formado por todas las combinaciones lineales de \\(a\\) y \\(b\\) con coeficientes enteros que resultan estrictamente positivas. \\(S \\neq \\emptyset\\) pues si \\(a \\neq 0\\), \\(|a| = a(\\operatorname{sgn}(a)) + b(0) \\in S\\).",
+      },
+      {
+        numero: 2,
+        tipo: "Aplicación del Principio del Buen Orden",
+        latex: "d = \\min(S) = a x_0 + b y_0 > 0",
+        explicacion: "Dado que \\(S\\) es un subconjunto no vacío de enteros positivos \\(\\mathbb{N}\\), el Principio del Buen Orden garantiza la existencia de un elemento mínimo \\(d \\in S\\).",
+      },
+      {
+        numero: 3,
+        tipo: "División de \\(a\\) entre el Mínimo \\(d\\)",
+        latex: "a = q d + r, \\quad 0 \\le r < d",
+        explicacion: "Por el Algoritmo de la División de Euclides, dividimos \\(a\\) entre \\(d\\) obteniendo un cociente \\(q\\) y un residuo \\(r\\).",
+      },
+      {
+        numero: 4,
+        tipo: "Demostración de que el Residuo \\(r = 0\\)",
+        latex: "r = a - q(a x_0 + b y_0) = a(1 - q x_0) + b(-q y_0)",
+        explicacion: "El residuo \\(r\\) es una combinación lineal entera de \\(a\\) y \\(b\\). Si fuese \\(r > 0\\), entonces \\(r \\in S\\), pero \\(r < d\\), contradiciendo la minimalidad de \\(d\\). Por tanto, \\(r = 0\\) y \\(d \\mid a\\). Análogamente, \\(d \\mid b\\).",
+      },
+      {
+        numero: 5,
+        tipo: "Demostración de Máximo Divisor Común",
+        latex: "c \\mid a \\;\\land\\; c \\mid b \\implies c \\mid (a x_0 + b y_0) = d \\implies c \\le d",
+        explicacion: "Cualquier divisor común \\(c\\) de \\(a\\) y \\(b\\) divide a toda combinación lineal de ellos, luego \\(c \\mid d\\), lo que implica \\(c \\le d\\). Así, \\(d = \\operatorname{mcd}(a, b)\\).",
+      },
+      {
+        numero: 6,
+        tipo: "Conclusión",
+        latex: "a x_0 + b y_0 = \\operatorname{mcd}(a, b) \\quad \\blacksquare",
+        explicacion: "El máximo común divisor se expresa como combinación lineal entera de \\(a\\) y \\(b\\).",
+      },
+    ],
+  },
+  {
+    id: "teorema_wilson",
+    titulo: "Teorema de Wilson",
+    autor: "John Wilson / Demostrado por Joseph-Louis Lagrange (1771)",
+    enunciado: "Un entero \\(p > 1\\) es un número primo si y solo si \\((p-1)! \\equiv -1 \\pmod p\\).",
+    categoria: "Aritmética Modular",
+    color: "#bc8cff",
+    pasos: [
+      {
+        numero: 1,
+        tipo: "Caso Directo: Estructura del Grupo \\(\\mathbb{Z}_p^\\times\\)",
+        latex: "\\mathbb{Z}_p^\\times = \\{1, 2, 3, \\dots, p-1\\}",
+        explicacion: "Si \\(p\\) es primo, todo elemento \\(a \\in \\{1, \\dots, p-1\\}\\) es coprimo con \\(p\\) y posee un único inverso multiplicativo \\(a' \\in \\{1, \\dots, p-1\\}\\) tal que \\(a \\cdot a' \\equiv 1 \\pmod p\\).",
+      },
+      {
+        numero: 2,
+        tipo: "Identificación de Elementos Autoinversos",
+        latex: "x^2 \\equiv 1 \\pmod p \\iff p \\mid (x-1)(x+1) \\iff x \\equiv 1 \\;\\lor\\; x \\equiv p-1 \\pmod p",
+        explicacion: "Los únicos elementos en \\(\\mathbb{Z}_p^\\times\\) que son sus propios inversos modulares son \\(1\\) y \\(p-1\\).",
+      },
+      {
+        numero: 3,
+        tipo: "Emparejamiento de Inversos en el Factorial",
+        latex: "(p-1)! = 1 \\cdot \\underbrace{(2 \\cdot 2') \\dots (k \\cdot k')}_{\\equiv 1 \\pmod p} \\cdot (p-1)",
+        explicacion: "Los restantes \\(p-3\\) elementos \\(\\{2, 3, \\dots, p-2\\}\\) se agrupan en pares disjuntos \\((a, a')\\) con \\(a \\neq a'\\), cada uno de los cuales tiene producto congruente con 1 módulo \\(p\\).",
+      },
+      {
+        numero: 4,
+        tipo: "Conclusión de la Congruencia",
+        latex: "(p-1)! \\equiv 1 \\cdot 1 \\cdot \\dots \\cdot 1 \\cdot (p-1) \\equiv p-1 \\equiv -1 \\pmod p \\quad \\blacksquare",
+        explicacion: "El producto colapsa a \\(1 \\cdot (p-1) \\equiv -1 \\pmod p\\), completando la demostración.",
+      },
+    ],
+  },
+  {
+    id: "pequeno_teorema_fermat",
+    titulo: "Pequeño Teorema de Fermat",
+    autor: "Pierre de Fermat (1640) / Leonhard Euler (1736)",
+    enunciado: "Si \\(p\\) es un número primo y \\(a\\) es un entero tal que \\(\\operatorname{mcd}(a, p) = 1\\), entonces \\(a^{p-1} \\equiv 1 \\pmod p\\).",
+    categoria: "Aritmética Modular",
+    color: "#f0883e",
+    pasos: [
+      {
+        numero: 1,
+        tipo: "Conjunto de Residuos no Nulos",
+        latex: "S = \\{1, 2, 3, \\dots, p-1\\}",
+        explicacion: "Consideramos el conjunto completo de residuos módulo \\(p\\) distintos de cero.",
+      },
+      {
+        numero: 2,
+        tipo: "Multiplicación por \\(a\\) y Biyección",
+        latex: "a S = \\{1a, 2a, 3a, \\dots, (p-1)a\\} \\pmod p",
+        explicacion: "Como \\(\\operatorname{mcd}(a, p) = 1\\), los elementos \\(i \\cdot a \\pmod p\\) son todos distintos módulo \\(p\\) para \\(i \\in S\\). Por tanto, \\(aS\\) es una permutación de los elementos de \\(S\\).",
+      },
+      {
+        numero: 3,
+        tipo: "Producto de los Elementos de Ambos Conjuntos",
+        latex: "(1a) \\cdot (2a) \\cdot \\dots \\cdot ((p-1)a) \\equiv 1 \\cdot 2 \\cdot \\dots \\cdot (p-1) \\pmod p",
+        explicacion: "El producto de todos los términos del conjunto transformado debe ser congruente con el producto de los términos originales.",
+      },
+      {
+        numero: 4,
+        tipo: "Factorización de Potencia de \\(a\\)",
+        latex: "a^{p-1} \\cdot (p-1)! \\equiv (p-1)! \\pmod p",
+        explicacion: "Extraemos el factor \\(a\\) de los \\(p-1\\) términos en el miembro izquierdo.",
+      },
+      {
+        numero: 5,
+        tipo: "Cancelación de \\((p-1)!\\)",
+        latex: "\\operatorname{mcd}((p-1)!, p) = 1 \\implies a^{p-1} \\equiv 1 \\pmod p \\quad \\blacksquare",
+        explicacion: "Dado que ninguno de los factores en \\((p-1)!\\) es divisible por el primo \\(p\\), \\((p-1)!\\) tiene inverso multiplicativo módulo \\(p\\) y se puede cancelar.",
+      },
+    ],
+  },
+  {
+    id: "euclides_euler_perfectos",
+    titulo: "Teorema de Euclides-Euler (Números Perfectos Pares)",
+    autor: "Euclides (Prop. IX.36) y Leonhard Euler (1747)",
+    enunciado: "Un entero positivo par \\(N\\) es un número perfecto (es decir, \\(\\sigma(N) = 2N\\)) si y solo si es de la forma \\(N = 2^{p-1}(2^p - 1)\\), donde tanto \\(p\\) como \\(2^p - 1\\) son números primos.",
+    categoria: "Funciones Aritméticas",
+    color: "#58a6ff",
+    pasos: [
+      {
+        numero: 1,
+        tipo: "Dirección Suficiente (Euclides)",
+        latex: "N = 2^{p-1}(2^p - 1), \\quad q = 2^p - 1 \\in \\mathbb{P}",
+        explicacion: "Sea \\(q = 2^p - 1\\) primo. Como \\(\\operatorname{mcd}(2^{p-1}, q) = 1\\) y \\(\\sigma\\) es multiplicativa:",
+      },
+      {
+        numero: 2,
+        tipo: "Cálculo de \\(\\sigma(N)\\)",
+        latex: "\\sigma(N) = \\sigma(2^{p-1}) \\cdot \\sigma(q) = (2^p - 1)(q + 1) = (2^p - 1)(2^p)",
+        explicacion: "Aplicamos la fórmula de suma de divisores de potencias de primos: \\(\\sigma(2^{p-1}) = \\frac{2^p - 1}{2-1} = 2^p-1\\) y \\(\\sigma(q) = q+1\\).",
+      },
+      {
+        numero: 3,
+        tipo: "Verificación de Perfección",
+        latex: "\\sigma(N) = 2 \\cdot [2^{p-1}(2^p - 1)] = 2N",
+        explicacion: "La suma de divisores es exactamente el doble del número original, demostrando que \\(N\\) es perfecto.",
+      },
+      {
+        numero: 4,
+        tipo: "Dirección Necesaria (Euler)",
+        latex: "N = 2^{k-1} m, \\quad m \\text{ impar}, \\; k \\ge 2",
+        explicacion: "Si \\(N\\) es un número perfecto par arbitrario, lo descomponemos extrayendo su máxima potencia de 2. La condición \\(\\sigma(N) = 2N\\) obliga algebraicamente a que \\(m = 2^k - 1\\) y que \\(m\\) sea primo.",
+      },
+      {
+        numero: 5,
+        tipo: "Conclusión",
+        latex: "N = 2^{p-1}(2^p - 1) \\iff \\sigma(N) = 2N \\quad \\blacksquare",
+        explicacion: "Queda establecida la caracterización completa y biunívoca de todos los números perfectos pares.",
+      },
+    ],
+  },
+];
