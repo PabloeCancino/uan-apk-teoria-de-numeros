@@ -8,6 +8,7 @@ import { SimuladorDiofanticas } from "./SimuladorDiofanticas";
 import { SimuladorFuncionesAritmeticas } from "./SimuladorFuncionesAritmeticas";
 import { SimuladorRelojModular } from "./SimuladorRelojModular";
 import { SimuladorCRT } from "./SimuladorCRT";
+import { GraficoPascal } from "./GraficoPascal";
 import { TablaContenedor } from "./TablaContenedor";
 
 export function VistaTema({ tema, onIniciarQuizModulo }) {
@@ -21,6 +22,7 @@ export function VistaTema({ tema, onIniciarQuizModulo }) {
     if (tema.widget === "funciones_aritmeticas") return <SimuladorFuncionesAritmeticas catColor={cat.color} {...tema.widgetProps} />;
     if (tema.widget === "reloj_modular") return <SimuladorRelojModular catColor={cat.color} {...tema.widgetProps} />;
     if (tema.widget === "crt") return <SimuladorCRT catColor={cat.color} {...tema.widgetProps} />;
+    if (tema.widget === "pascal") return <GraficoPascal />;
     if (tema.tabla) return <TablaContenedor tabla={tema.tabla} catColor={cat.color} />;
     return null;
   };

@@ -208,4 +208,50 @@ export const DEMOSTRACIONES = [
       },
     ],
   },
+  {
+    id: "teorema_chino_residuo",
+    titulo: "Teorema Chino del Residuo (TChR)",
+    autor: "Sun Tzu Suan Jing (siglo III d.C.) / Formalización de Gauss (1801)",
+    enunciado: "Sean \\(m_1, m_2, \\dots, m_k\\) enteros positivos mutuamente coprimos (\\(\\operatorname{mcd}(m_i, m_j) = 1\\) para \\(i \\neq j\\)) y sean \\(a_1, a_2, \\dots, a_k\\) enteros arbitrarios. Entonces el sistema \\(x \\equiv a_i \\pmod{m_i}\\) tiene una solución entera única módulo \\(M = m_1 m_2 \\cdots m_k\\).",
+    categoria: "Aritmética Modular",
+    color: "#f0883e",
+    pasos: [
+      {
+        numero: 1,
+        tipo: "Definición de los Módulos Complementarios",
+        latex: "M = \\prod_{i=1}^k m_i, \\qquad M_i = \\frac{M}{m_i} \\quad \\text{para cada } i",
+        explicacion: "Definimos \\(M\\) como el producto de todos los módulos. Para cada \\(i\\), el módulo complementario \\(M_i = M/m_i\\) es el producto de todos los módulos excepto \\(m_i\\). Como los \\(m_i\\) son coprimos dos a dos, \\(\\operatorname{mcd}(M_i, m_i) = 1\\).",
+      },
+      {
+        numero: 2,
+        tipo: "Existencia de los Inversos Modulares",
+        latex: "M_i y_i \\equiv 1 \\pmod{m_i} \\quad \\Longleftrightarrow \\quad y_i \\equiv M_i^{-1} \\pmod{m_i}",
+        explicacion: "Dado que \\(\\operatorname{mcd}(M_i, m_i) = 1\\), por la Identidad de Bézout (calculable con el Algoritmo Extendido de Euclides) existe un único entero \\(y_i\\) con \\(0 \\le y_i < m_i\\) tal que \\(M_i y_i \\equiv 1 \\pmod{m_i}\\).",
+      },
+      {
+        numero: 3,
+        tipo: "Construcción Explícita de la Solución",
+        latex: "x_0 = \\sum_{i=1}^k a_i M_i y_i",
+        explicacion: "Definimos \\(x_0\\) como la combinación lineal anterior. Para cada índice \\(j\\): el término \\(a_j M_j y_j \\equiv a_j \\cdot 1 = a_j \\pmod{m_j}\\) y todos los demás términos \\(a_i M_i y_i\\) (con \\(i \\neq j\\)) son divisibles por \\(m_j\\) (pues \\(m_j \\mid M_i\\)), luego valen \\(0 \\pmod{m_j}\\). Así \\(x_0 \\equiv a_j \\pmod{m_j}\\) para todo \\(j\\).",
+      },
+      {
+        numero: 4,
+        tipo: "Verificación de la Solución",
+        latex: "x_0 \\equiv a_j M_j y_j \\equiv a_j \\cdot 1 = a_j \\pmod{m_j} \\quad \\forall j",
+        explicacion: "La solución \\(x_0\\) satisface simultáneamente todas las congruencias del sistema, ya que cada componente \\(M_i y_i\\) actúa como un selector modulado: es \\(\\equiv 1 \\pmod{m_i}\\) y \\(\\equiv 0 \\pmod{m_j}\\) para \\(j \\neq i\\).",
+      },
+      {
+        numero: 5,
+        tipo: "Unicidad Módulo M",
+        latex: "x' \\equiv x_0 \\pmod{m_i} \\; \\forall i \\implies m_i \\mid (x' - x_0) \\; \\forall i \\implies M \\mid (x' - x_0)",
+        explicacion: "Si \\(x'\\) es otra solución, entonces \\(m_i \\mid (x' - x_0)\\) para todo \\(i\\). Como los módulos son mutuamente coprimos, \\(M = m_1 \\cdots m_k\\) divide a \\(x' - x_0\\), es decir, \\(x' \\equiv x_0 \\pmod M\\). La solución es única módulo \\(M\\).",
+      },
+      {
+        numero: 6,
+        tipo: "Isomorfismo de Anillos",
+        latex: "\\mathbb{Z}/M\\mathbb{Z} \\cong \\mathbb{Z}/m_1\\mathbb{Z} \\times \\mathbb{Z}/m_2\\mathbb{Z} \\times \\cdots \\times \\mathbb{Z}/m_k\\mathbb{Z} \\quad \\blacksquare",
+        explicacion: "El TChR establece el isomorfismo de anillos anterior, donde el mapa \\(x \\bmod M \\mapsto (x \\bmod m_1, \\dots, x \\bmod m_k)\\) es una biyección. Esta es la esencia algebraica del teorema.",
+      },
+    ],
+  },
 ];

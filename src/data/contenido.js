@@ -147,9 +147,10 @@ export const CATEGORIAS = [
         definicion: "Un número entero \\(p > 1\\) es primo si sus únicos divisores positivos son \\(1\\) y \\(p\\). Si \\(n > 1\\) no es primo, se denomina compuesto. Dos enteros \\(a\\) y \\(b\\) son primos relativos (coprimos) si \\(\\operatorname{mcd}(a, b) = 1\\). Euclides demostró que el conjunto de los números primos \\(\\mathbb{P}\\) es infinito considerando el número \\(N = p_1 p_2 \\dots p_k + 1\\).",
         formula:    "p \\in \\mathbb{P} \\iff (d \\mid p \\land d > 0 \\implies d = 1 \\lor d = p), \\qquad |\\mathbb{P}| = \\infty",
         notas: [
-          "El 2 es el único número primo par.",
-          "Conjetura de Goldbach (1742): Todo entero par mayor que 2 es suma de dos primos.",
-          "Conjetura de los primos gemelos: Existen infinitos pares de primos \\((p, p+2)\\)."
+          "El 2 es el único número primo par; todo primo \\(p > 2\\) es impar y satisface \\(p \\equiv 1\\) o \\(p \\equiv 3 \\pmod 4\\).",
+          "Conjetura de Goldbach (1742, sin demostrar): Todo entero par mayor que 2 es suma de dos primos.",
+          "Postulado de Bertrand (demostrado por Chebyshev, 1852): Para todo \\(n \\ge 1\\) existe un primo \\(p\\) con \\(n < p \\le 2n\\).",
+          "Todo primo \\(p > 3\\) tiene la forma \\(6k \\pm 1\\) para algún \\(k \\in \\mathbb{N}\\)."
         ],
       },
       {
@@ -186,6 +187,58 @@ export const CATEGORIAS = [
           "Criptosistema RSA: La clave pública usa \\(n = pq\\); descifrar requiere conocer \\(\\phi(n) = (p-1)(q-1)\\)."
         ],
       },
+      {
+        id:         "primos_mersenne_fermat",
+        titulo:     "2.5 Primos de Mersenne y de Fermat",
+        definicion: "Un primo de Mersenne es un número primo de la forma \\(M_p = 2^p - 1\\), donde \\(p\\) debe ser primo (condición necesaria, no suficiente). Los primeros son \\(M_2=3, M_3=7, M_5=31, M_7=127\\). El Test de Lucas-Lehmer verifica su primalidad en tiempo polinomial. Un primo de Fermat es un primo de la forma \\(F_n = 2^{2^n}+1\\); los únicos conocidos son \\(F_0=3, F_1=5, F_2=17, F_3=257, F_4=65537\\). Se conjetura que no existen más primos de Fermat.",
+        formula:    "M_p = 2^p - 1 \\in \\mathbb{P} \\implies p \\in \\mathbb{P}, \\qquad F_n = 2^{2^n} + 1, \\quad F_0,F_1,F_2,F_3,F_4 \\in \\mathbb{P}",
+        notas: [
+          "Test de Lucas-Lehmer: \\(M_p\\) es primo \\(\\iff\\) la sucesión \\(s_0=4,\\; s_{k+1}=s_k^2-2 \\pmod{M_p}\\) satisface \\(s_{p-2}\\equiv 0 \\pmod{M_p}\\).",
+          "Todo número perfecto par tiene la forma \\(2^{p-1}M_p\\) donde \\(M_p\\) es primo de Mersenne (Teorema de Euclides-Euler).",
+          "Los primos de Fermat \\(F_n\\) son la base de los polígonos regulares construibles con regla y compás (Teorema de Gauss-Wantzel): un \\(p\\)-ágono regular es construible \\(\\iff\\) \\(p\\) es primo de Fermat.",
+          "GIMPS (Great Internet Mersenne Prime Search) ha encontrado los primos más grandes conocidos; actualmente el mayor tiene más de 24 millones de dígitos."
+        ],
+        tabla: {
+          cabecera: ["Tipo", "Forma", "Primeros ejemplos", "Observación"],
+          filas: [
+            ["Mersenne", "\\(2^p-1\\)", "3, 7, 31, 127, 8191", "Ligados a números perfectos pares"],
+            ["Fermat", "\\(2^{2^n}+1\\)", "3, 5, 17, 257, 65537", "Solo 5 conocidos; \\(F_5\\) es compuesto"],
+          ],
+        },
+      },
+      {
+        id:         "primos_gemelos_especiales",
+        titulo:     "2.6 Primos Gemelos y Familias de Primos Especiales",
+        definicion: "Dos primos \\(p\\) y \\(p+2\\) son primos gemelos. La conjetura de los primos gemelos (aún sin demostrar) afirma que existen infinitos pares. El trabajo de Zhang (2013) y las mejoras de Maynard demostraron que existen infinitos pares de primos con diferencia acotada. Un primo de Sophie Germain satisface que tanto \\(p\\) como \\(2p+1\\) son primos. Un primo de la forma \\(4k+1\\) es suma de dos cuadrados (Fermat); un primo \\(4k+3\\) no lo es.",
+        formula:    "(p,\\, p+2) \\subset \\mathbb{P} \\text{ (gemelos)}, \\qquad p \\text{ de Sophie Germain} \\iff p \\in \\mathbb{P} \\land 2p+1 \\in \\mathbb{P}",
+        notas: [
+          "Pares de primos gemelos conocidos pequeños: \\((3,5),(5,7),(11,13),(17,19),(29,31),(41,43),(59,61),(71,73)\\).",
+          "Primos de Cunningham de primera especie: cadenas \\(p, 2p+1, 4p+3, \\ldots\\) de primos de Sophie Germain.",
+          "Primos de Chen: \\(p\\) primo tal que \\(p+2\\) es primo o semiprimo (producto de dos primos); Chen (1973) demostró que hay infinitos.",
+          "Primos de Wilson: \\(p\\) primo con \\((p-1)! \\equiv -1 \\pmod{p^2}\\); solo se conocen \\(p=5, 13, 563\\)."
+        ],
+      },
+      {
+        id:         "pseudoprimos_carmichael",
+        titulo:     "2.7 Pseudoprimos, Números de Carmichael y Tests de Primalidad",
+        definicion: "Un pseudoprimo de Fermat en base \\(a\\) es un número compuesto \\(n\\) con \\(a^{n-1} \\equiv 1 \\pmod n\\) (supera el test de Fermat). Un número de Carmichael es un compuesto que es pseudoprimo en TODAS las bases coprimas con \\(n\\). El criterio de Korselt caracteriza los números de Carmichael: \\(n = p_1 \\cdots p_k\\) libre de cuadrados y \\((p_i - 1) \\mid (n - 1)\\) para todo \\(i\\). El test de Miller-Rabin es un test probabilístico eficiente que no tiene falsos negativos.",
+        formula:    "n \\text{ Carmichael} \\iff n \\text{ libre de cuadrados y } (p_i-1) \\mid (n-1) \\; \\forall p_i \\mid n",
+        notas: [
+          "El menor número de Carmichael es \\(561 = 3 \\times 11 \\times 17\\). Verificación: \\(560 = 2 \\times 280 = 10 \\times 56 = 16 \\times 35\\), todos divisibles por \\(p_i-1 \\in \\{2,10,16\\}\\). ✓",
+          "El test de Miller-Rabin con \\(k\\) rondas tiene probabilidad de error \\(< 4^{-k}\\). Es la base de los tests de primalidad probabilísticos modernos.",
+          "El test AKS (Agrawal-Kayal-Saxena, 2002) fue el primer algoritmo determinista en tiempo polinomial \\(O((\\log n)^{6})\\) para primalidad.",
+          "Pseudoprimos de Euler: compuestos \\(n\\) con \\(a^{(n-1)/2} \\equiv \\pm 1 \\pmod n\\). Más fuertes que los de Fermat pero aún vulnerables."
+        ],
+        tabla: {
+          cabecera: ["Test", "Tipo", "Complejidad", "¿Errores?"],
+          filas: [
+            ["División tentativa", "Determinista", "\\(O(\\sqrt{n})\\)", "No"],
+            ["Test de Fermat", "Probabilístico", "\\(O(k \\log^2 n)\\)", "Sí (Carmichael)"],
+            ["Miller-Rabin", "Probabilístico", "\\(O(k \\log^3 n)\\)", "\\(< 4^{-k}\\)"],
+            ["AKS", "Determinista", "\\(O(\\log^6 n)\\)", "No"],
+          ],
+        },
+      },
     ],
   },
 
@@ -212,13 +265,15 @@ export const CATEGORIAS = [
       {
         id:         "triangulo_pascal_propiedades",
         titulo:     "3.2 Triángulo de Pascal y Relaciones Aritméticas",
-        definicion: "El Triángulo de Pascal organiza geométricamente los coeficientes binomiales \\(\\binom{n}{k}\\) donde cada término interior es la suma de los dos superiores inmediatos: \\(\\binom{n}{k} = \\binom{n-1}{k-1} + \\binom{n-1}{k}\\). Conecta directamente con los números figurados, los coeficientes polinomiales y la sucesión de Fibonacci (sumando diagonales inclinadas).",
+        definicion: "El Triángulo de Pascal organiza geométricamente los coeficientes binomiales \\(\\binom{n}{k}\\) donde cada término interior es la suma de los dos superiores inmediatos: \\(\\binom{n}{k} = \\binom{n-1}{k-1} + \\binom{n-1}{k}\\). Conecta directamente con los números figurados, los coeficientes polinomiales y la sucesión de Fibonacci (sumando diagonales inclinadas). La fila \\(n\\) proporciona los coeficientes de la expansión \\((a+b)^n\\) según el Teorema del Binomio de Newton.",
         formula:    "\\binom{n}{k} = \\binom{n-1}{k-1} + \\binom{n-1}{k}, \\qquad F_{n+1} = \\sum_{k=0}^{\\lfloor n/2 \\rfloor} \\binom{n-k}{k}",
         notas: [
-          "Si \\(p\\) es primo, entonces \\(p \\mid \\binom{p}{k}\\) para todo \\(1 \\le k \\le p-1\\).",
-          "Teorema de Lucas: Permite calcular \\(\\binom{n}{k} \\bmod p\\) a partir de las expansiones en base \\(p\\) de \\(n\\) y \\(k\\).",
-          "Visualmente, colorear los números impares en el triángulo de Pascal genera el fractal del triángulo de Sierpinski."
+          "Si \\(p\\) es primo, entonces \\(p \\mid \\binom{p}{k}\\) para todo \\(1 \\le k \\le p-1\\) (base de la demostración combinatoria del PTF).",
+          "Teorema de Lucas: \\(\\binom{n}{k} \\equiv \\prod_i \\binom{n_i}{k_i} \\pmod p\\) donde \\(n = \\sum n_i p^i\\) y \\(k = \\sum k_i p^i\\) son las expansiones en base \\(p\\).",
+          "Coloreando los residuos módulo un primo \\(p\\), el Triángulo de Pascal revela el fractal de Sierpinski (para \\(p=2\\)).",
+          "Las sumas de filas dan potencias de 2: \\(\\sum_{k=0}^n \\binom{n}{k} = 2^n\\). Las sumas alternas dan 0: \\(\\sum_{k=0}^n (-1)^k \\binom{n}{k} = 0\\)."
         ],
+        widget: "pascal",
       },
       {
         id:         "teoremas_fermat_wilson",
