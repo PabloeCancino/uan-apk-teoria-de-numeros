@@ -36,7 +36,11 @@ export const CATEGORIAS = [
         definicion: "Los Axiomas de Peano (1889) proporcionan la fundamentación lógica rigurosa para el conjunto de los números naturales \\(\\mathbb{N}\\) a partir de una constante base \\(1\\) y una función sucesor inyectiva \\(S: \\mathbb{N} \\to \\mathbb{N}\\). El anillo de los enteros \\(\\mathbb{Z}\\) se construye formalmente como el cociente de pares ordenados \\(\\mathbb{N} \\times \\mathbb{N}\\) bajo la relación de equivalencia \\((a, b) \\sim (c, d) \\iff a + d = b + c\\), dotándolo de una estructura de dominio de integridad conmutativo unitario.",
         formula:    "\\mathbb{Z} = (\\mathbb{N} \\times \\mathbb{N}) / \\sim, \\quad (a, b) + (c, d) = (a+c, b+d), \\quad (a, b) \\cdot (c, d) = (ac+bd, ad+bc)",
         notas: [
-          "El 5° axioma de Peano es el axioma de inducción: si \\(S \\subseteq \\mathbb{N}\\), \\(1 \\in S\\) y \\(\\forall k (k \\in S \\implies S(k) \\in S)\\), entonces \\(S = \\mathbb{N}\\).",
+          "Axioma 1 — Elemento base: \\(1 \\in \\mathbb{N}\\). El número \\(1\\) es un número natural (elemento inicial del sistema).",
+          "Axioma 2 — Función sucesor: Para todo \\(n \\in \\mathbb{N}\\) existe un único sucesor \\(S(n) \\in \\mathbb{N}\\). Cada natural tiene un siguiente.",
+          "Axioma 3 — El 1 no es sucesor: \\(\\forall n \\in \\mathbb{N},\\; S(n) \\neq 1\\). El elemento base \\(1\\) no es el sucesor de ningún natural.",
+          "Axioma 4 — Inyectividad del sucesor: \\(S(m) = S(n) \\implies m = n\\). Naturales distintos tienen sucesores distintos.",
+          "Axioma 5 — Inducción: Si \\(S \\subseteq \\mathbb{N}\\) cumple \\(1 \\in S\\) y \\(\\forall k(k \\in S \\implies S(k) \\in S)\\), entonces \\(S = \\mathbb{N}\\). Toda propiedad heredable desde el 1 vale para todos los naturales.",
           "\\(\\mathbb{Z}\\) es un Dominio de Ideales Principales (DIP) y un Dominio Euclidiano.",
           "Carece de divisores de cero propios: \\(a \\cdot b = 0 \\implies a = 0 \\lor b = 0\\)."
         ],
