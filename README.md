@@ -1,8 +1,10 @@
-# Teoría de Números UAN (CBIMAT-256) · Aplicación Educativa Interactiva
+# 📱 Teoría de Números — UAN
 
-Aplicación móvil e interactiva institucional diseñada para el curso **Teoría de Números (CBIMAT-256)** de la Licenciatura en Matemáticas (**PALMAT Plan 2024**) de la Universidad Autónoma de Nayarit (UAN), bajo la autoría del **Dr. Pablo Eduardo Cancino Marentes**.
+[![Android APK](https://img.shields.io/badge/Descargar-APK%20Android-green?style=for-the-badge&logo=android)](https://github.com/PabloeCancino/uan-apk-teoria-de-numeros/releases/download/v1.0.0/TeoriaNumeros.apk)
+[![Ver Web App](https://img.shields.io/badge/Ver-Web%20App%20en%20Vivo-blue?style=for-the-badge&logo=githubpages)](https://PabloeCancino.github.io/uan-apk-teoria-de-numeros/)
+[![Norma](https://img.shields.io/badge/Norma-NTE--UAN--APK--001%20v1.3-purple?style=for-the-badge)](https://github.com/PabloeCancino/uan-apk-plantilla-arquetipo)
 
-Desarrollada bajo el marco y los estándares de la norma institucional **NTE-UAN-APK-001 v1.3**.
+Aplicación interactiva para la enseñanza, modelado y simulación computacional de la **Teoría de Números** (`CBIMAT-256`), desarrollada bajo la norma **NTE-UAN-APK-001 v1.3** de la **Universidad Autónoma de Nayarit**.
 
 ---
 
