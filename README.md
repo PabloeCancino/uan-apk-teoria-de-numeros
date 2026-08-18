@@ -1,8 +1,9 @@
 # 📱 Teoría de Números — UAN
 
-[![Android APK](<https://img.shields.io/badge/Descargar-APK%20Android-green?style=for-the-badge&logo=android>)](https://github.com/PabloeCancino/uan-apk-teoria-de-numeros/releases/download/v1.0.0/TeoriaNumeros.apk)
-[![Ver Web App](<https://img.shields.io/badge/Ver-Web%20App%20en%20Vivo-blue?style=for-the-badge&logo=githubpages>)](https://PabloeCancino.github.io/uan-apk-teoria-de-numeros/)
-[![Norma](<https://img.shields.io/badge/Norma-NTE--UAN--APK--001%20v1.3-purple?style=for-the-badge>)](https://github.com/PabloeCancino/uan-apk-plantilla-arquetipo)
+[![Android APK](https://img.shields.io/badge/Descargar-APK%20Android-green?style=for-the-badge&logo=android)](https://github.com/PabloeCancino/uan-apk-teoria-de-numeros/releases/download/v1.0.0/TeoriaNumeros.apk)
+[![Ver Web App](https://img.shields.io/badge/Ver-Web%20App%20en%20Vivo-blue?style=for-the-badge&logo=githubpages)](https://PabloeCancino.github.io/uan-apk-teoria-de-numeros/)
+[![Libro de Texto mdBook](https://img.shields.io/badge/Libro-mdBook%20en%20Línea-orange?style=for-the-badge&logo=mdbook)](https://pabloecancino.github.io/Libro-teoria-de-numeros/)
+[![Norma](https://img.shields.io/badge/Norma-NTE--UAN--APK--001%20v1.3-purple?style=for-the-badge)](https://github.com/PabloeCancino/uan-apk-plantilla-arquetipo)
 
 Aplicación interactiva para la enseñanza, modelado y simulación computacional de la **Teoría de Números** (`CBIMAT-256`), desarrollada bajo la norma **NTE-UAN-APK-001 v1.3** de la **Universidad Autónoma de Nayarit**.
 
