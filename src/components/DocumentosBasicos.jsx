@@ -110,7 +110,7 @@ export function DocumentosBasicos() {
               1. Presentación y Justificación
             </h4>
             <p style={{ fontSize: "var(--fs-sm)", color: C.text, marginBottom: 12 }}>
-              La teoría de números es la rama de las matemáticas puras que estudia las propiedades de los números, centrándose de manera particular en el conjunto de los enteros \(\mathbb{Z}\), pero más en general en las estructuras de "Dominios Enteros". Su estudio favorece la comprensión profunda de las estructuras numéricas que dan base a los sistemas de numeración y establecen los cimientos de los números algebraicos y la criptografía moderna.
+              {renderTextWithMath("La teoría de números es la rama de las matemáticas puras que estudia las propiedades de los números, centrándose de manera particular en el conjunto de los enteros \\(\\mathbb{Z}\\), pero más en general en las estructuras de \"Dominios Enteros\". Su estudio favorece la comprensión profunda de las estructuras numéricas que dan base a los sistemas de numeración y establecen los cimientos de los números algebraicos y la criptografía moderna.")}
             </p>
 
             {/* Unidad de Competencia */}

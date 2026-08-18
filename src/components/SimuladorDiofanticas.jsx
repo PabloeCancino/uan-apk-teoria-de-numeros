@@ -169,7 +169,7 @@ export function SimuladorDiofanticas({ catColor = "#58a6ff" }) {
       }}>
         Ecuación: <strong style={{ color: catColor }}>{a}x + {b}y = {c}</strong>
         <div style={{ fontSize: "var(--fs-xs)", color: C.muted, marginTop: 4 }}>
-          Condición de Solubilidad: \(\operatorname{mcd}({a}, {b}) = {resultado.mcd}\) {resultado.tieneSolucion ? `divide a ${c} ✅` : `NO divide a ${c} ❌`}
+          Condición de Solubilidad: <InlineFormula latex={`\\operatorname{mcd}(${a}, ${b}) = ${resultado.mcd}`} /> {resultado.tieneSolucion ? `divide a ${c} ✅` : `NO divide a ${c} ❌`}
         </div>
       </div>
 
@@ -233,7 +233,7 @@ export function SimuladorDiofanticas({ catColor = "#58a6ff" }) {
           fontSize: "var(--fs-sm)",
           textAlign: "center"
         }}>
-          ❌ Sin soluciones enteras: \(\operatorname{mcd}({a}, {b}) = {resultado.mcd}\) no divide a {c}.
+          ❌ Sin soluciones enteras: <InlineFormula latex={`\\operatorname{mcd}(${a}, ${b}) = ${resultado.mcd}`} /> no divide a {c}.
         </div>
       )}
     </div>

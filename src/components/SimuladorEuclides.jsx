@@ -126,13 +126,13 @@ export function SimuladorEuclides({ catColor = "#e3b341" }) {
         <div>
           <div style={{ fontSize: "var(--fs-xs)", color: C.muted }}>Máximo Común Divisor:</div>
           <div style={{ fontSize: "var(--fs-md)", fontWeight: 700, color: C.green }}>
-            \(\operatorname{mcd}({a}, {b}) = {data.mcd}\)
+            <InlineFormula latex={`\\operatorname{mcd}(${a}, ${b}) = ${data.mcd}`} />
           </div>
         </div>
         <div>
           <div style={{ fontSize: "var(--fs-xs)", color: C.muted }}>Mínimo Común Múltiplo:</div>
           <div style={{ fontSize: "var(--fs-md)", fontWeight: 700, color: C.accent }}>
-            \(\operatorname{mcm}({a}, {b}) = {data.mcm}\)
+            <InlineFormula latex={`\\operatorname{mcm}(${a}, ${b}) = ${data.mcm}`} />
           </div>
         </div>
       </div>
@@ -176,7 +176,7 @@ export function SimuladorEuclides({ catColor = "#e3b341" }) {
         fontSize: "var(--fs-xs)"
       }}>
         <div style={{ fontWeight: 700, color: C.accent, marginBottom: 4 }}>
-          📜 Identidad de Bézout: \(a \cdot x + b \cdot y = \operatorname{mcd}(a, b)\)
+          📜 Identidad de Bézout: <InlineFormula latex="a \cdot x + b \cdot y = \operatorname{mcd}(a, b)" />
         </div>
         <div style={{ color: C.text, fontSize: "var(--fs-sm)" }}>
           <InlineFormula latex={`${a} \\cdot (${data.x}) + ${b} \\cdot (${data.y}) = ${a * data.x + b * data.y}`} />

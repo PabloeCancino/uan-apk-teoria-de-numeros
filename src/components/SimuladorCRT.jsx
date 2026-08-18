@@ -162,7 +162,7 @@ export function SimuladorCRT({ catColor = "#58a6ff" }) {
               <InlineFormula latex={`x \\equiv ${crt.xSol} \\pmod{${crt.M}}`} />
             </div>
             <div style={{ color: C.muted }}>
-              Solución general entera: <strong style={{ color: C.text }}>\(x = {crt.xSol} + {crt.M}k, \quad k \in \mathbb{"{Z}"}\)</strong>
+              Solución general entera: <strong style={{ color: C.text }}>\(x = {crt.xSol} + {crt.M}k, \quad k \in \mathbb{Z}\)</strong>
             </div>
           </div>
         </>

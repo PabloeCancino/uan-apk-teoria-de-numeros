@@ -215,7 +215,7 @@ export function SimuladorRelojModular({ catColor = "#f0883e" }) {
                   <InlineFormula latex={`${a}^{-1} \\equiv ${datosModular.invA} \\pmod{${n}} \\quad (${a} \\cdot ${datosModular.invA} \\equiv 1)`} />
                 ) : (
                   <span style={{ color: C.red, fontSize: "11px" }}>
-                    \(\operatorname{mcd}({a}, {n}) \neq 1\), por lo que {a} no tiene inverso modular.
+                    <InlineFormula latex={`\\operatorname{mcd}(${a}, ${n}) \\neq 1`} />, por lo que {a} no tiene inverso modular.
                   </span>
                 )}
               </div>
@@ -232,7 +232,8 @@ export function SimuladorRelojModular({ catColor = "#f0883e" }) {
         fontSize: "11px",
         color: C.text,
       }}>
-        <strong>Grupo de Unidades \(\mathbb{Z}_{n}^\times\):</strong> {"\\{" + datosModular.unidades.join(", ") + "\\}"} (Orden: \(\phi({n})\) = {datosModular.unidades.length})
+        <strong>Grupo de Unidades <InlineFormula latex={`\\mathbb{Z}_{${n}}^\\times`} />:</strong> {"\\{" + datosModular.unidades.join(", ") + "\\}"} (Orden: \(\phi({n})\) = {datosModular.unidades.length})
       </div>
     </div>
-  )
+  );
+}

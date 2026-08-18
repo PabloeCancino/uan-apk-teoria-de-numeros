@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { ThemeCtx } from "../ThemeCtx";
 import { CATEGORIAS } from "../data/contenido.js";
+import { InlineFormula } from "./Formula";
 
 export function Sidebar({
   temaActivo,
@@ -78,7 +79,7 @@ export function Sidebar({
                 display: "flex", alignItems: "center", justifyContent: "center",
                 color: C.accent, fontWeight: "bold", fontSize: 13
               }}>
-                \(\mathbb{Z}\)
+                <InlineFormula latex="\mathbb{Z}" />
               </div>
               <span style={{ fontWeight: 700, fontSize: "var(--fs-md)", color: C.text }}>
                 Teoría de Números <span style={{ color: C.accent, fontSize: "var(--fs-xs)" }}>UAN</span>
